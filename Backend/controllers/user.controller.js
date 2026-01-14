@@ -76,6 +76,7 @@
 
 const User = require("../model/user.model");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken"); // npm install jsonwebtoken
 
 // ----------------- User CRUD -----------------
 exports.getUser = async (req, res) => {
@@ -142,6 +143,50 @@ exports.deleteUser = async (req, res) => {
     const { id } = req.params;
     const deletedUser = await User.findByIdAndDelete(id);
     res.json({ status: "success", data: deletedUser });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+
+// login
+
+
+
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // 1️⃣ Validation
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password required" });
+    }
+
+    // 2️⃣ User check
+    const user = await User.findOne({ email }).select("+password");
+    if (!user) return res.status(400).json({ message: "User not found" });
+
+    // 3️⃣ Password check
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+
+    // 4️⃣ JWT generate
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.json({
+      status: "success",
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      },
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

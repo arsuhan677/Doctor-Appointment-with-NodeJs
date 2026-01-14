@@ -6,27 +6,27 @@ import axios from "axios";
 
 import { FaHospital } from "react-icons/fa";
 
-export default function Login() {
+export default function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
+        name,
         email,
         password,
+        phone,
       });
 
-      console.log("Login Success:", res.data);
+      console.log("Register Success:", res.data);
 
-      // JWT token localStorage এ save করা
-      localStorage.setItem("token", res.data.token);
-
-      // Login successful → Home page / Dashboard redirect
-      window.location.href = "/";
+      // Success হলে Login page এ redirect
+      window.location.href = "/login";
 
     } catch (err: any) {
       console.log(err.response?.data);
@@ -45,6 +45,20 @@ export default function Login() {
         {error && <p className="mb-3 text-red-500">{error}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-8">
+          {/* Name */}
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+              placeholder="Your Name"
+            />
+          </div>
+
+          {/* Email */}
           <div>
             <label className="block text-sm text-gray-600 mb-1">Email</label>
             <input
@@ -57,6 +71,20 @@ export default function Login() {
             />
           </div>
 
+          {/* Phone */}
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Phone</label>
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              className="w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+              placeholder="017xxxxxxxx"
+            />
+          </div>
+
+          {/* Password */}
           <div>
             <label className="block text-sm text-gray-600 mb-1">Password</label>
             <input
@@ -73,14 +101,14 @@ export default function Login() {
             type="submit"
             className="w-full rounded-md bg-blue-600 py-2 text-white text-sm hover:bg-blue-700 transition"
           >
-            Login
+            Sign Up
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-500">
-          Don't have an account?{" "}
-          <Link href="/signup" className="text-blue-600 hover:underline">
-            Sign Up
+          Already have an account?{" "}
+          <Link href="/login" className="text-blue-600 hover:underline">
+            Login
           </Link>
         </p>
       </div>
