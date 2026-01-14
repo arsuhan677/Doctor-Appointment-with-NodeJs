@@ -94,14 +94,14 @@ export default function Header() {
         {isLoggedIn ? (
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition duration-300"
+            className="bg-white text-red-600 border px-4 py-1.5 rounded-lg hover:bg-red-50 transition duration-300 cursor-pointer"
           >
             Logout
           </button>
         ) : (
           <Link
             href="/login"
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 flex items-center space-x-2"
+            className="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition duration-300 flex items-center space-x-2"
           >
             Login
           </Link>

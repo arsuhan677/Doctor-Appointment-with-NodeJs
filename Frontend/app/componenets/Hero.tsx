@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="bg-gradient-to-r from-blue-50 to-cyan-50 py-20"
+      className="bg-gradient-to-r from-blue-50 to-cyan-50 py-10"
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-10 md:mb-0">
@@ -61,12 +61,11 @@ export default function Hero() {
         <div className="md:w-1/2 relative">
           <div className="relative w-full h-96 md:h-[500px] rounded-2xl overflow-hidden">
             <Image
-  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlUT0ZOWCQB4MksVq-Ec06qLN6BWBu9Wa45g&s"
-  alt="Doctor with patient"
-  fill
-  className="object-cover"
-/>
-
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCcg22rYrOX0ebcalhyXqkPDuI8k2z_Oz2g&s"
+              alt="Doctor with patient"
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
             <div className="flex items-center space-x-3">
