@@ -9,6 +9,7 @@ const userRoute = require("./routes/user.route");
 const doctorRoute = require("./routes/doctor.route")
 const apointmentRoute = require("./routes/apointment.route")
 const servicesRoute = require("./routes/services.route")
+const authRoute = require("./routes/auth.route")
 
 dotenv.config();
 
@@ -23,6 +24,8 @@ app.use("/api/user", userRoute);
 app.use("/api/doctor", doctorRoute)
 app.use("/api/apointment", apointmentRoute)
 app.use("/api/services", servicesRoute)
+
+app.use("/api/auth", authRoute);
 
 
 mongoose.connect(process.env.MONGODB_URI)

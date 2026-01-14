@@ -24,7 +24,7 @@ export default function Header() {
             Services
           </Link>
           <Link
-            href="#doctors"
+            href="/doctors"
             className="text-gray-700 hover:text-blue-600 font-medium"
           >
             Doctors
@@ -37,10 +37,9 @@ export default function Header() {
           </Link>
         </nav>
 
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 flex items-center space-x-2">
-          <FaPhoneAlt />
-          <span>Book Appointment</span>
-        </button>
+        <Link href="/login" className="bg-blue-600 text-white cursor-pointer px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 flex items-center space-x-2">
+          login
+        </Link>
       </div>
     </header>
   );

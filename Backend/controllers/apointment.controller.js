@@ -38,7 +38,7 @@ const createApointment = async (req, res) => {
     const { name, email, phone, reason, time, doctorId, date } = req.body;
     const user = await User.findOne({ email });
 
-    let newUser;
+    let newUserId;
 
     if (!user) {
       const newUser = new User({
@@ -52,7 +52,7 @@ const createApointment = async (req, res) => {
     }
 
     const userId = user?._id || newUserId;
-    console.log("*************************userid", userId);
+    console.log("**userid", userId);
 
     const apointment = await Apointment.find({
       doctorId: doctorId,
@@ -96,6 +96,7 @@ const createApointment = async (req, res) => {
 
   }
 };
+
 
 // const createApointment = async (req, res) => {
 //   const { doctor, phone, email, patientName, time, date } = req.body;
