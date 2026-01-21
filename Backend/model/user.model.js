@@ -47,7 +47,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter your password"],
       minlength: 6,
-      select: false, // login ছাড়া password আসবে না
+      select: false,
     },
   },
   {

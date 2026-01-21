@@ -25,7 +25,6 @@ export default function Register() {
 
       console.log("Register Success:", res.data);
 
-      // Success হলে Login page এ redirect
       window.location.href = "/login";
 
     } catch (err: any) {
@@ -71,19 +70,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Phone */}
-          <div>
-            <label className="block text-sm text-gray-600 mb-1">Phone</label>
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-              className="w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-              placeholder="017xxxxxxxx"
-            />
-          </div>
-
           {/* Password */}
           <div>
             <label className="block text-sm text-gray-600 mb-1">Password</label>
@@ -96,6 +82,20 @@ export default function Register() {
               placeholder="••••••••"
             />
           </div>
+
+          {/* Phone */}
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Phone</label>
+            <input
+              type="number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              className="w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+              placeholder="+880 "
+            />
+          </div>
+
 
           <button
             type="submit"

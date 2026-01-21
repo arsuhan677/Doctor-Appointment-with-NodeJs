@@ -26,6 +26,9 @@ export default function Hero() {
               Learn More
             </button>
           </div>
+          <div>
+            heelo
+          </div>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="flex items-center space-x-3">
@@ -61,7 +64,7 @@ export default function Hero() {
         <div className="md:w-1/2 relative">
           <div className="relative w-full h-96 md:h-[500px] rounded-2xl overflow-hidden">
             <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCcg22rYrOX0ebcalhyXqkPDuI8k2z_Oz2g&s"
+              src="/image/image.png"
               alt="Doctor with patient"
               fill
               className="object-cover"
