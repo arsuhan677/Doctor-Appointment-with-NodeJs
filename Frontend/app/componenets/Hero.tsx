@@ -26,9 +26,6 @@ export default function Hero() {
               Learn More
             </button>
           </div>
-          <div>
-            heelo
-          </div>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="flex items-center space-x-3">
