@@ -1,5 +1,6 @@
 const { default: mongoose } = require("mongoose");
 const Services = require("./services.model");
+// const Services = require("./services.model");
 
 const DoctorSchema = mongoose.Schema({
   name: {

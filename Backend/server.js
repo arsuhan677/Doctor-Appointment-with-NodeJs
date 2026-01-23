@@ -11,6 +11,7 @@ const apointmentRoute = require("./routes/apointment.route")
 const servicesRoute = require("./routes/services.route")
 const authRoute = require("./routes/auth.route")
 
+
 dotenv.config();
 
 const app = express();
@@ -38,4 +39,3 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
