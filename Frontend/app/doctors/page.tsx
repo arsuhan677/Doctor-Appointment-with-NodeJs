@@ -1,5 +1,7 @@
-// app/components/Doctors.tsx
 "use client";
+
+export const dynamic = "force-dynamic";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,8 +12,20 @@ import {
   FaRegClock,
 } from "react-icons/fa";
 
+type Singlealldoc = {
+  _id: string;
+  name: string;
+  title: string;
+  experiance: string;
+  worktime: string;
+  services: string;
+  education: string;
+  bio: string;
+  location: string
+};
+
 export default function Doctors() {
-  const [doctors, setDoctors] = useState([]);
+  const [doctors, setDoctors] = useState<Singlealldoc[]>([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/doctor")
       .then((res) => res.json())

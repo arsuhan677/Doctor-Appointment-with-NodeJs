@@ -10,8 +10,20 @@ import {
   FaRegClock,
 } from "react-icons/fa";
 
+type Singledoctor = {
+  _id: string;
+  name: string;
+  title: string;
+  experiance: string;
+  worktime: string;
+  services: string;
+  education: string;
+  bio: string;
+  location: string
+};
+
 export default function Doctors() {
-  const [doctors, setDoctors] = useState([]);
+  const [doctors, setDoctors] = useState<Singledoctor[]>([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/doctor")
       .then((res) => res.json())
@@ -36,9 +48,9 @@ export default function Doctors() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {doctors && doctors.length > 0 ? (
-            doctors.map((doctor) => (
+            doctors.map((doctor, index) => (
               <div
-                key={doctor._id}
+                key={index}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="relative h-64 w-full">

@@ -1,11 +1,11 @@
-// import axios from "axios";
+import axios from "axios";
 
 const API_BASE_URL = "http://localhost:5000/api";
 
-// const api = axios.create({
-//   baseURL: API_BASE_URL,
-//   withCredentials: true,
-// });
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+});
 
 // Interceptor for JWT tokens
 api.interceptors.request.use((config) => {
