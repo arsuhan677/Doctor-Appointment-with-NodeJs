@@ -27,7 +27,7 @@ type Singlealldoc = {
 export default function Doctors() {
   const [doctors, setDoctors] = useState<Singlealldoc[]>([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/doctor")
+    fetch("https://doctor-backend-nine-phi.vercel.app/api/doctor")
       .then((res) => res.json())
       .then((data) => {
         console.log("doctors", data);

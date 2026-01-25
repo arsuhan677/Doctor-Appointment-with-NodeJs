@@ -55,7 +55,7 @@ export default function BookAppointment({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/apointment", {
+      const response = await fetch("https://doctor-backend-nine-phi.vercel.app/api/apointment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

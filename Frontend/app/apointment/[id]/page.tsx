@@ -91,9 +91,9 @@ export default function AppointmentPage() {
     try {
       let url;
       if (date) {
-        url = `http://localhost:5000/api/doctor/${doctorId}/${date}`;
+        url = `https://doctor-backend-nine-phi.vercel.app/api/doctor/${doctorId}/${date}`;
       } else {
-        url = `http://localhost:5000/api/doctor/${doctorId}`;
+        url = `https://doctor-backend-nine-phi.vercel.app/api/doctor/${doctorId}`;
       }
       console.log("url", url);
       const response = await fetch(url);
@@ -144,7 +144,7 @@ export default function AppointmentPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/apointment", {
+      const response = await fetch("https://doctor-backend-nine-phi.vercel.app/api/apointment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

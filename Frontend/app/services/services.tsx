@@ -12,7 +12,7 @@ export default function Services() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/doctor")
+    fetch("https://doctor-backend-nine-phi.vercel.app/api/doctor")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data.data);
